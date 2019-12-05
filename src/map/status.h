@@ -1100,13 +1100,13 @@ struct regen_data {
 
 	//tick accumulation before healing.
 	struct {
-		unsigned int hp,sp,shp,ssp;
+		unsigned int hp, sp;
 	} tick;
 
 	//Regen rates (where every 1 means +100% regen)
 	struct {
 		unsigned char
-		hp,sp,shp,ssp;
+		hp, sp;
 	} rate;
 
 	struct {
