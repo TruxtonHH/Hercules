@@ -1079,16 +1079,16 @@ struct status_data {
 //Additional regen data that only players have.
 struct regen_data_sub {
 	unsigned short
-		hp,sp;
+		hp, sp;
 
 	//tick accumulation before healing.
 	struct {
-		unsigned int hp,sp;
+		unsigned int hp, sp;
 	} tick;
 
-	//Regen rates (where every 1 means +100% regen)
+	//Regen rates on a base of 100
 	struct {
-		unsigned char hp,sp;
+		int hp, sp;
 	} rate;
 };
 
@@ -1096,17 +1096,16 @@ struct regen_data {
 
 	unsigned short flag; //Marks what stuff you may heal or not.
 	unsigned short
-		hp,sp,shp,ssp;
+		hp, sp, skill_hp, skill_sp;
 
 	//tick accumulation before healing.
 	struct {
 		unsigned int hp, sp;
 	} tick;
 
-	//Regen rates (where every 1 means +100% regen)
+	//Regen rates on a base of 100
 	struct {
-		unsigned char
-		hp, sp;
+		int hp, sp;
 	} rate;
 
 	struct {
@@ -1117,7 +1116,7 @@ struct regen_data {
 	} state;
 
 	//skill-regen, sitting-skill-regen (since not all chars with regen need it)
-	struct regen_data_sub *sregen, *ssregen;
+	struct regen_data_sub *skill, *sitting;
 };
 
 struct sc_display_entry {
